@@ -1,0 +1,28 @@
+.form-control{
+    display: flex;
+    justify-content: space-evenly;
+
+    background-color: #ddd;
+    border-radius: 30px;
+    border:none;
+
+    padding: 10px;
+
+}
+
+.form-control{
+    #text{
+        border-radius: 30px;
+        border: none;
+    }
+
+    #date{
+        border-radius: 30px;
+        border: none;
+    }
+
+    #reminder{
+        border-radius: 30px;
+        border: none;
+    }
+}

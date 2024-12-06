@@ -1,14 +1,14 @@
 [
   {
     "id": 1,
-    "text": "Pickup food",
-    "date": "December 15th",
+    "text": "Exercise",
+    "date": "December 17th",
     "reminder": true
   },
   {
     "id": 2,
-    "text": "Exercise",
-    "date": "December 17th",
-    "reminder": true
+    "text": "Pick Food",
+    "date": "December 16th",
+    "reminder": false
   }
 ]

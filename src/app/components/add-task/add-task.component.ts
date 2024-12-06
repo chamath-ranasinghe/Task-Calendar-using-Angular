@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './add-task.component.scss'
 })
 export class AddTaskComponent {
+  task!:string;
+  day!:string;
+  reminder:boolean = false;
 
 }
