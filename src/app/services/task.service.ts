@@ -1,29 +1,28 @@
-import { Injectable } from '@angular/core';
+import { Injectable, } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { Task } from '../model/Task';
 import { Tasks } from '../data/Tasks';
+import {HttpClient, HttpHeaders} from "@angular/common/http"
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
+  private apiUrl = "http://localhost:8080/tasks";
 
-  async getTasks(): Promise<Task[]>{
-    try{
-    const res = await fetch("http://localhost:8080/tasks");
+  constructor(private http:HttpClient) { }
 
-    if (!res.ok){
-      throw new Error(`Http Error! Status ${res.status}`);
-    }
-    const data = await res.json();
-    console.log(data);
-    
-  } catch(error:any){
-    console.error("Error fetching tasks", error);
-  }
-  return Tasks;
+  getTasks(): Observable<Task[]>{
+    return this.http.get<Task[]>(this.apiUrl);
 }
 
+  deleteTask(task: Task): Observable<Task>{
+    const url = `${this.apiUrl}/${task.id}`;
+    return this.http.delete<Task>(url);
+  }
 
-
-  constructor() { }
+  addTask(): Observable<Task[]>{
+    const url = this.apiUrl;
+    return this.http.put<Task[]>(url);
+  }
 }

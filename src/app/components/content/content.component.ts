@@ -9,4 +9,5 @@ import { TasksComponent } from "../tasks/tasks.component";
   styleUrl: './content.component.scss'
 })
 export class ContentComponent {
+  
 }
