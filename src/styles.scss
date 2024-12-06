@@ -1,1 +1,59 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+
+$AIESECBLUE : #031ef0;
+$SOFTBLACK: #131313;
+$BTNHOVER: #3f3e3e;
+
+body{
+    font-family: 'Lato', sans-serif;
+}
+
+.header-container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    padding: 10px;
+    margin-bottom: 10px;
+
+    border: 5px solid;
+    border-radius: 30px;
+    border-top-color: $AIESECBLUE ;
+    border-right-color: $AIESECBLUE ;
+    border-bottom-color: $SOFTBLACK ;
+    border-left-color: $SOFTBLACK;
+}
+
+.container{
+
+    padding: 10px;
+    margin-bottom: 10px;
+
+    border: 5px solid;
+    border-radius: 30px;
+    border-top-color: $AIESECBLUE ;
+    border-right-color: $AIESECBLUE ;
+    border-bottom-color: $SOFTBLACK ;
+    border-left-color: $SOFTBLACK;
+}
+
+.btn{
+    background-color: $SOFTBLACK;
+    cursor: pointer;
+
+    color: white;
+    font-size: 15px;
+    padding: 10px;
+
+    border-radius: 30px;
+    border: none;
+
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover{
+    background-color: $BTNHOVER;
+}
