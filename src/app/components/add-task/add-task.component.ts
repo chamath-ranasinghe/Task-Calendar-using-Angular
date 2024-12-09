@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms'
+import { NgIf } from '@angular/common';
 import { Task } from '../../model/Task';
 import {TaskService} from '../../services/task.service'
 import { AddTaskSharedServiceService } from '../../services/add-task-shared-service.service';
+import { UIService } from '../../services/ui.service';
 
 @Component({
   selector: 'app-add-task',
-  imports: [FormsModule],
+  imports: [FormsModule, NgIf],
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.scss'
 })
@@ -15,7 +17,13 @@ export class AddTaskComponent {
   date!:string;
   reminder:boolean = false;
 
-  constructor(private taskService: TaskService, private addTaskSharedService: AddTaskSharedServiceService){}
+  showAddTask!: boolean;
+
+  constructor(private taskService: TaskService, private addTaskSharedService: AddTaskSharedServiceService, private uiService: UIService){
+    this.uiService.trigger$.subscribe({next: (value)=>{
+      this.showAddTask = value;
+    }})
+  }
 
   onSubmit(){
     if (!this.task || !this.date){
