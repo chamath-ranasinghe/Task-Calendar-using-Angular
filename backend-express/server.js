@@ -3,9 +3,6 @@ const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 
-// [  {"id":1, "text": "Pickup food", "date": "December 15th", "reminder":true},
-//     {"id":2,"text": "Watch Movie", "date": "December 16th", "reminder":false}]
-
 const app = express();
 
 // Path to the JSON file
