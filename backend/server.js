@@ -62,7 +62,7 @@ app.put("/tasks", (req, res) => {
 
     writeTasks(tasks);
 
-    res.json(tasks);
+    res.json(newTask);
 });
 
 // Start the server

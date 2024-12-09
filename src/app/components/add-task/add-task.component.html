@@ -1,20 +1,20 @@
-<form>
+<form (ngSubmit)="onSubmit()">
   <div class="form-control">
     <div>
       <label for="text">Task   </label>
-      <input type="text" name="text" id="text" placeholder="Add Text" />
+      <input type="text" name="text" [(ngModel)]="task" id="text" placeholder="Add Text" />
     </div>
     <div>
       <label for="date">Date</label>
-      <input type="date" name="date" id="date" placeholder="Add Date" />
+      <input type="date" name="date" [(ngModel)]="date" id="date" placeholder="Add Date" />
     </div>
     <div>
       <label for="reminder">Remind?</label>
-      <select name="reminder">
+      <select name="reminder" [(ngModel)]="reminder">
         <option value="true">Yes</option>
         <option value="false">No</option>
       </select>
     </div>
-    <input type="submit" value="Add Task" id="submit">
+    <input class="btn" type="submit" value="Add Task" id="submit">
   </div>
 </form>

@@ -10,5 +10,11 @@
     "text": "Pick Food",
     "date": "December 16th",
     "reminder": false
+  },
+  {
+    "id": 3,
+    "text": "Collect Mail",
+    "date": "2024-12-19",
+    "reminder": "true"
   }
 ]

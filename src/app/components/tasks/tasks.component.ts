@@ -3,6 +3,7 @@ import { Task } from '../../model/Task';
 import { NgFor } from '@angular/common';
 import { TaskItemComponent } from "../task-item/task-item.component";
 import { TaskService } from '../../services/task.service';
+import { AddTaskSharedServiceService } from '../../services/add-task-shared-service.service';
 
 @Component({
   selector: 'app-tasks',
@@ -13,12 +14,16 @@ import { TaskService } from '../../services/task.service';
 export class TasksComponent implements OnInit{
   tasks!: Task[];
 
-  constructor(private taskService: TaskService){}
+  constructor(private taskService: TaskService, private addTaskSharedService: AddTaskSharedServiceService){}
 
   ngOnInit(): void {
     this.taskService.getTasks().subscribe((tasks)=>{
       this.tasks = tasks;
     });
+
+    this.addTaskSharedService.trigger$.subscribe({next:(task)=>{
+      this.addTask(task);
+    }})
   }
 
   deleteTask(task:Task){
@@ -27,5 +32,12 @@ export class TasksComponent implements OnInit{
     });
   }
 
+  addTask(newTask:Task){
+    this.taskService.addTask(newTask).subscribe({next: (task)=>{
+      this.tasks.push(task);
+      console.log(this.tasks);
+      console.log("Task Successfully Added");
+    }})
+  }
 
 }
